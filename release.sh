@@ -3,7 +3,7 @@
 echo -n "Что необходимо обновить? (edo, edoadm, rio, migrator, status_checker): "
 read ans
 case "$ans" in
-     edo) echo "Обновляем edo!"
+     edo|EDO) echo "Обновляем edo!"
           edo=$(find /data/edo/release_edo -maxdepth 1 -type d | grep release | sort -rV | head -1 |  awk 'match($0,/[0-9]+/){print substr($0,RSTART,RLENGTH)}')
           let "new_release =  $edo + 1"
           echo "Создаем новый каталог 'release.$new_release'."
